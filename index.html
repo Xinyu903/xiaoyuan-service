@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>校园兼职信息平台</title>
+    <title>校园服务信息平台</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
         body {
             background-color: #f5f7fa;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -22,20 +22,38 @@
             text-align: center;
             margin-bottom: 30px;
         }
-        .job-card {
+        /* 左右两栏容器 */
+        .container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .column {
+            flex: 1;
+        }
+        .column h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .job-card, .errand-card {
             background: white;
             padding: 20px;
             margin: 15px 0;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .job-title {
+        .job-title, .errand-title {
             font-size: 18px;
             font-weight: bold;
-            color: #2980b9;
+            color: #27ae60;
             margin-bottom: 10px;
         }
-        .job-detail {
+        .errand-title {
+            color: #e67e22;
+        }
+        .job-detail, .errand-detail {
             margin: 8px 0;
             color: #555;
         }
@@ -54,39 +72,77 @@
         .form-link:hover {
             background: #2ecc71;
         }
+        /* 手机上自动变成上下布局 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>📋 校园兼职信息平台</h1>
+    <h1>📋 校园服务信息平台</h1>
 
-    <!-- 这里是示例兼职信息，你可以随时修改/新增/删除 -->
-    <div class="job-card">
-        <div class="job-title">1. 周末家教（数理化）</div>
-        <div class="job-detail">📍 地点：学校附近</div>
-        <div class="job-detail">⏰ 时间：周末全天</div>
-        <div class="job-detail">💰 薪资：80-120元/小时</div>
-        <div class="job-detail">📝 要求：高中/大学在读，成绩优异，有家教经验优先</div>
+    <div class="container">
+        <!-- 左边：兼职信息 -->
+        <div class="column">
+            <h2>💼 兼职信息</h2>
+            <div class="job-card">
+                <div class="job-title">1. 周末家教（数理化）</div>
+                <div class="job-detail">📍 地点：学校附近</div>
+                <div class="job-detail">⏰ 时间：周末全天</div>
+                <div class="job-detail">💰 薪资：80-120元/小时</div>
+                <div class="job-detail">📝 要求：高中/大学在读，成绩优异，有家教经验优先</div>
+            </div>
+            <div class="job-card">
+                <div class="job-title">2. 奶茶店兼职店员</div>
+                <div class="job-detail">📍 地点：学校南门商业街</div>
+                <div class="job-detail">⏰ 时间：每天16:00-22:00（可排班）</div>
+                <div class="job-detail">💰 薪资：15元/小时 + 提成</div>
+                <div class="job-detail">📝 要求：态度好，能长期做，每周至少3天</div>
+            </div>
+            <div class="job-card">
+                <div class="job-title">3. 校园代理（文创产品）</div>
+                <div class="job-detail">📍 地点：校内/线上</div>
+                <div class="job-detail">⏰ 时间：自由安排</div>
+                <div class="job-detail">💰 薪资：按件提成，月入上不封顶</div>
+                <div class="job-detail">📝 要求：有一定销售能力，在校学生优先</div>
+            </div>
+        </div>
+
+        <!-- 右边：跑腿服务 -->
+        <div class="column">
+            <h2>🏃 跑腿服务</h2>
+            <div class="errand-card">
+                <div class="errand-title">1. 取快递/寄快递</div>
+                <div class="errand-detail">📍 范围：校内所有快递点</div>
+                <div class="errand-detail">⏰ 服务时间：10:00-20:00</div>
+                <div class="errand-detail">💰 费用：3元/件，大件5元起</div>
+                <div class="errand-detail">📝 备注：贵重物品、生鲜请提前说明</div>
+            </div>
+            <div class="errand-card">
+                <div class="errand-title">2. 食堂代买/带饭</div>
+                <div class="errand-detail">📍 范围：校内所有食堂</div>
+                <div class="errand-detail">⏰ 服务时间：饭点前后30分钟</div>
+                <div class="errand-detail">💰 费用：1-2元/单，饭费实付实报</div>
+                <div class="errand-detail">📝 备注：可帮你占座、避开高峰期</div>
+            </div>
+            <div class="errand-card">
+                <div class="errand-title">3. 打印/复印资料</div>
+                <div class="errand-detail">📍 范围：校内打印店</div>
+                <div class="errand-detail">⏰ 服务时间：工作日全天</div>
+                <div class="errand-detail">💰 费用：打印费+跑腿费1元，量大可优惠</div>
+                <div class="errand-detail">📝 备注：支持黑白/彩色打印、装订</div>
+            </div>
+        </div>
     </div>
 
-    <div class="job-card">
-        <div class="job-title">2. 奶茶店兼职店员</div>
-        <div class="job-detail">📍 地点：学校南门商业街</div>
-        <div class="job-detail">⏰ 时间：每天16:00-22:00（可排班）</div>
-        <div class="job-detail">💰 薪资：15元/小时 + 提成</div>
-        <div class="job-detail">📝 要求：态度好，能长期做，每周至少3天</div>
-    </div>
-
-    <div class="job-card">
-        <div class="job-title">3. 校园代理（文创产品）</div>
-        <div class="job-detail">📍 地点：校内/线上</div>
-        <div class="job-detail">⏰ 时间：自由安排</div>
-        <div class="job-detail">💰 薪资：按件提成，月入上不封顶</div>
-        <div class="job-detail">📝 要求：有一定销售能力，在校学生优先</div>
-    </div>
-
-    <!-- 你的表单链接已经嵌入，不用再修改了 -->
-    <a href=https://f.wps.cn/g/ZkHcYryq/" " target="_blank" class="form-link">
-        👉 我要发布/应聘兼职（点我填写）
+    <!-- 提交按钮 -->
+    <a href=" " 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="form-link">
+       👉 我要报名/下单，点我填写
     </a >
 
 </body>
